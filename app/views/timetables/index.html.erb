@@ -1,0 +1,39 @@
+<h1>時間割</h1>
+<table border='1' align='center'>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Mon</th>
+      <th>Tue</th>
+      <th>Wed</th>
+      <th>Thu</th>
+      <th>Fri</th>
+      <th>Sat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for n in 1..6 do %>
+      <tr>
+      <th><%= n %></th>
+      <% 
+        dow = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+        for m in 0..5 do 
+      %>
+          <% timetable = Timetable.find_by(dayofweek: dow[m], hour: n) %> 
+          <td>
+            <% unless timetable.nil? then %>
+              <%= timetable.title %><br>
+              教室：<%= timetable.place %><br>
+              出席：<%= timetable.numofattend %><br>
+              <%= link_to '編集', edit_timetable_path(timetable) %>
+              <%= link_to '削除', timetable_path(timetable), method: :delete %>
+            <% end %>
+          </td>
+      <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to '追加', new_timetable_path %>
+<br>
+<%= link_to 'トップへ戻る', '/' %>

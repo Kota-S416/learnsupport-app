@@ -1,0 +1,11 @@
+<h1>予定編集</h1>
+<%= form_for(@task) do |f| %>
+  <div><%= f.label :予定名 %></div>
+  <div><%= f.text_field :title %></div>
+  <div><%= f.label :実施日／締切日 %></div>
+  <div><%= f.text_field :dayoftask %></div>
+  <div><%= f.label :備考 %></div>
+  <div><%= f.text_field :comment %></div>
+  <div><%= f.submit %></div>
+<% end %>
+<%= link_to '戻る', tasks_path %>

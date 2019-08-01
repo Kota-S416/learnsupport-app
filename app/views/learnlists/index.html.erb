@@ -1,0 +1,20 @@
+<div class="main learnlists-index">
+  <h2>学修項目一覧</h2>
+  <div class="container">
+    <div class="learnlists-index-item">
+      学修題目　｜　
+      学修範囲
+    </div>
+    <% @learnlists.each do |learnlist| %>
+      <div class="learnlists-index-item">
+        <%= learnlist.title %>　｜　
+        <%= learnlist.range %>
+        <%= link_to '編集', edit_learnlist_path(learnlist) %>
+        <%= link_to '削除', learnlist_path(learnlist), method: :delete %>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to '追加', new_learnlist_path %>
+  <br>
+  <%= link_to 'トップへ戻る', '/' %>
+</div>

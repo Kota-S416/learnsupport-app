@@ -1,0 +1,25 @@
+<h1>時間割編集</h1>
+<%= form_for(@timetable) do |f| %>
+  <div>
+    <%= f.label :曜日 %><br>
+    <%= f.text_field :dayofweek %>
+  </div>
+  <div>
+    <%= f.label :時間 %><br>
+    <%= f.text_field :hour %>
+  </div>
+  <div>
+    <%= f.label :科目名 %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :教室名 %><br>
+    <%= f.text_field :place %>
+  </div>
+  <div>
+    <%= f.label :出席回数 %><br>
+    <%= f.text_field :numofattend %>
+  </div>
+  <div><%= f.submit %></div>
+<% end %>
+<%= link_to '戻る', timetables_path %>

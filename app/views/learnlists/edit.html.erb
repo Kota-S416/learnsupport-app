@@ -1,0 +1,10 @@
+<h1>学修項目編集</h1>
+<%= form_for(@learnlist) do |f| %>
+  <div><%= f.label :学修題目 %></div>
+  <div><%= f.text_field :title %></div>
+  <div><%= f.label :学修範囲 %></div>
+  <div><%= f.text_field :range %></div>
+
+  <div><%= f.submit %></div>
+<% end %>
+<%= link_to '戻る', learnlists_path %>
